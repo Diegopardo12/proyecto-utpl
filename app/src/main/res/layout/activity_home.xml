@@ -6,4 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".Home">
 
+    <FrameLayout
+        android:layout_width="413dp"
+        android:layout_height="98dp"
+        android:background="#003E6A"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-2dp">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150sp"
+            android:layout_marginTop="60sp"
+            android:text="Horarios y turnos"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
