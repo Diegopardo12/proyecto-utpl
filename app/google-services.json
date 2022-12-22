@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "769884579426",
+    "project_id": "registroutpl-e7581",
+    "storage_bucket": "registroutpl-e7581.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769884579426:android:0482bcbd3f28e972f6133b",
+        "android_client_info": {
+          "package_name": "com.example.proyecto_utpl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769884579426-40vm3r65jf9jul9l6glmi6k6i6fem4ph.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjzOOMmv2evtM_kcJfR6QJx7chwvGm-VU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "769884579426-40vm3r65jf9jul9l6glmi6k6i6fem4ph.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

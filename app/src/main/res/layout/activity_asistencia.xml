@@ -6,23 +6,87 @@
     android:layout_height="match_parent"
     tools:context=".asistencia">
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="410dp"
-        android:layout_height="99dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-1dp">
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="223dp"
+        android:layout_height="61dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.101"
+        app:srcCompat="@drawable/titulo" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_marginStart="150dp"
-            android:layout_marginTop="50dp"
-            android:text="Horarios y Turnos"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </FrameLayout>
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="304dp"
+        android:layout_height="41dp"
+        android:text="Para iniciar sesión ingrese su usuario con el formato usuario@utpl.edu.ec"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.237" />
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="218dp"
+        android:layout_height="42dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_clave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.927" />
+
+    <EditText
+        android:id="@+id/et_clave"
+        android:layout_width="220dp"
+        android:layout_height="42dp"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_ingresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#003F72"
+        android:text="Registrar"
+        android:textAllCaps="false"
+        app:cornerRadius="0sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.284"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.645" />
+
+    <Button
+        android:id="@+id/btn_acceder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#003F72"
+        android:text="Acceder"
+        android:textAllCaps="false"
+        app:cornerRadius="0sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.744"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.645" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
