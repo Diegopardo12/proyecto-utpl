@@ -36,7 +36,8 @@ class Registro : AppCompatActivity() {
                 hashMapOf(
                     "provider" to provider,
                     "nombre" to et_nombre.text.toString(),
-                    "apellido" to et_lastname.text.toString()
+                    "apellido" to et_lastname.text.toString(),
+                    "departamento" to sp_dpto.selectedItem.toString(),
                 )
             )
 

@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">proyecto-utpl</string>
+
+    <string-array name="Departamentos">
+        <item>Ciencias de la salud</item>
+        <item>Ciencias económicas y empresariales</item>
+        <item>Ciencias exactas y naturales</item>
+        <item>Ciencias sociales, educación y humanidades</item>
+        <item>Ciencias jurídicas y políticas </item>
+        <item>Ingenierías y arquitectura </item>
+        <item>Tecnologías </item>
+        <item>EDES - Business school </item>
+    </string-array>
 </resources>
