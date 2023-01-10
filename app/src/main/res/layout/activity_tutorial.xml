@@ -10,9 +10,11 @@
         android:id="@+id/imageView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/lig"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="110dp" />
+        tools:layout_editor_absoluteY="110dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView13"
@@ -24,32 +26,33 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.082"
-        tools:layout_editor_absoluteX="96dp" />
+        app:layout_constraintVertical_bias="0.082" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_tuto"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:backgroundTint="#003F72"
-        android:drawableLeft="@drawable/Vector"
+        android:drawableLeft="@drawable/vector"
         android:text="Tutorial"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/btn_ini"
         app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13"
         app:layout_constraintVertical_bias="0.41" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_ini"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="#FBBF00"
-        android:drawableLeft="@drawable/Vector1"
+        android:drawableLeft="@drawable/vector1"
         android:text="Iniciar sesión"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
