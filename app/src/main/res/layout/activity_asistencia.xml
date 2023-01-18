@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".asistencia">
 
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="304dp"
+        android:layout_height="41dp"
+        android:text="Si olvidó su contraseña o desea gestionar sus credenciales de acceso a los servicios de UTPL"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.727" />
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="223dp"
@@ -31,62 +43,66 @@
 
     <EditText
         android:id="@+id/et_email"
-        android:layout_width="218dp"
+        android:layout_width="300dp"
         android:layout_height="42dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName"
         android:singleLine="false"
         android:textSize="15sp"
+        android:background="@drawable/stylo_borde_edit"
         app:layout_constraintBottom_toTopOf="@+id/et_clave"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintHorizontal_bias="0.438"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.927" />
+        app:layout_constraintVertical_bias="0.941" />
 
     <EditText
         android:id="@+id/et_clave"
-        android:layout_width="220dp"
+        android:layout_width="300dp"
         android:layout_height="42dp"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
         android:textSize="15sp"
+        android:background="@drawable/stylo_borde_edit"
+        android:layout_margin="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintHorizontal_bias="0.441"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.435" />
 
     <Button
         android:id="@+id/btn_ingresar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#003F72"
+        android:layout_width="129dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#FFC107"
         android:text="Registrar"
         android:textAllCaps="false"
-        app:cornerRadius="0sp"
+        app:cornerRadius="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.284"
+        app:layout_constraintHorizontal_bias="0.187"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.645" />
+        app:layout_constraintVertical_bias="0.632" />
 
     <Button
         android:id="@+id/btn_acceder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#003F72"
-        android:text="Acceder"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#2970EC"
+        android:text="Iniciar Sesión"
         android:textAllCaps="false"
-        app:cornerRadius="0sp"
+        app:cornerRadius="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.744"
+        app:layout_constraintHorizontal_bias="0.192"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.645" />
+        app:layout_constraintVertical_bias="0.542" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

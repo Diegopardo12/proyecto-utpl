@@ -11,4 +11,5 @@
         <item>Tecnologías </item>
         <item>EDES - Business school </item>
     </string-array>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

@@ -16,7 +16,7 @@ class tutorial : AppCompatActivity() {
         timer.schedule(object : TimerTask() {
             override fun run() {
                 // Cuando el temporizador finalice, inicia la siguiente actividad
-                startActivity(Intent(this@tutorial, principal::class.java))
+                startActivity(Intent(this@tutorial, principal::class.java) )
                 finish()
             }
         },7000)

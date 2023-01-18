@@ -1,8 +1,13 @@
 package com.example.proyecto_utpl
 
+import android.app.Dialog
+import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -31,20 +36,38 @@ class asistencia : AppCompatActivity() {
         }
 
         btn_acceder.setOnClickListener {
-            if(et_email.text.isNotEmpty() && et_clave.text.isNotEmpty()){
-                FirebaseAuth.getInstance().signInWithEmailAndPassword(
-                    et_email.text.toString(),
-                    et_clave.text.toString()).addOnCompleteListener{
-                    if (it.isSuccessful){
-                        showHome2(it.result?.user?.email?:"", ProviderType.Personal)
-                    }else{
-                        showAlert()
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Título de la ventana emergente")
+            builder.setPositiveButton("OK") { _, _ ->
+                /*if(et_email.text.isNotEmpty() && et_clave.text.isNotEmpty()){
+                    FirebaseAuth.getInstance().signInWithEmailAndPassword(
+                        et_email.text.toString(),
+                        et_clave.text.toString()).addOnCompleteListener{
+                        if (it.isSuccessful){
+                            showHome2(it.result?.user?.email?:"", ProviderType.Personal)
+                        }else{
+                            showAlert()
+                        }
                     }
-                }
+                }*/
             }
+            val dialog = builder.create()
+            dialog.show()
+
+
+        }
+        fun showImageDialog(context: Context, image: Drawable) {
+            val dialog = Dialog(context)
+            val inflater = LayoutInflater.from(context)
+            val view = inflater.inflate(R.layout.image_dialog, null)
+            val imageView = view.findViewById<ImageView>(R.id.imageView)
+            imageView.setImageDrawable(image)
+            dialog.setContentView(view)
+            dialog.show()
         }
 
     }
+
     private fun showAlert() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")
