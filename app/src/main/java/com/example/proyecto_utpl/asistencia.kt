@@ -37,9 +37,9 @@ class asistencia : AppCompatActivity() {
 
         btn_acceder.setOnClickListener {
             val builder = AlertDialog.Builder(this)
-            builder.setTitle("Título de la ventana emergente")
+            builder.setTitle("Bienvenido")
             builder.setPositiveButton("OK") { _, _ ->
-                /*if(et_email.text.isNotEmpty() && et_clave.text.isNotEmpty()){
+                if(et_email.text.isNotEmpty() && et_clave.text.isNotEmpty()){
                     FirebaseAuth.getInstance().signInWithEmailAndPassword(
                         et_email.text.toString(),
                         et_clave.text.toString()).addOnCompleteListener{
@@ -49,14 +49,14 @@ class asistencia : AppCompatActivity() {
                             showAlert()
                         }
                     }
-                }*/
+                }
             }
             val dialog = builder.create()
             dialog.show()
 
 
         }
-        fun showImageDialog(context: Context, image: Drawable) {
+        /*fun showImageDialog(context: Context, image: Drawable) {
             val dialog = Dialog(context)
             val inflater = LayoutInflater.from(context)
             val view = inflater.inflate(R.layout.image_dialog, null)
@@ -64,7 +64,7 @@ class asistencia : AppCompatActivity() {
             imageView.setImageDrawable(image)
             dialog.setContentView(view)
             dialog.show()
-        }
+        }*/
 
     }
 
