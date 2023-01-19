@@ -19,7 +19,10 @@ class Home : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
+        btn_registrarHora.setOnClickListener {
+            val ida = Intent(this, Ficha_registro::class.java)
+            startActivity(ida)
+        }
 
         btn_ubi.setOnClickListener {
             val intent = Intent(this, MapsActivity::class.java)

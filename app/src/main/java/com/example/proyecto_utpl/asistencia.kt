@@ -54,7 +54,6 @@ class asistencia : AppCompatActivity() {
             val dialog = builder.create()
             dialog.show()*/
 
-
         }
         /*fun showImageDialog(context: Context, image: Drawable) {
             val dialog = Dialog(context)
