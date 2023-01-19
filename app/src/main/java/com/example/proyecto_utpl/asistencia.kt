@@ -36,9 +36,9 @@ class asistencia : AppCompatActivity() {
         }
 
         btn_acceder.setOnClickListener {
-            val builder = AlertDialog.Builder(this)
+            /*val builder = AlertDialog.Builder(this)
             builder.setTitle("Bienvenido")
-            builder.setPositiveButton("OK") { _, _ ->
+            builder.setPositiveButton("OK") { _, _ ->*/
                 if(et_email.text.isNotEmpty() && et_clave.text.isNotEmpty()){
                     FirebaseAuth.getInstance().signInWithEmailAndPassword(
                         et_email.text.toString(),
@@ -50,9 +50,9 @@ class asistencia : AppCompatActivity() {
                         }
                     }
                 }
-            }
+            /*}
             val dialog = builder.create()
-            dialog.show()
+            dialog.show()*/
 
 
         }
