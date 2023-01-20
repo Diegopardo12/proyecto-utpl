@@ -1,98 +1,72 @@
 package com.example.proyecto_utpl
 
-import android.Manifest
-import android.app.Activity
+
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
-import android.widget.Toast
-import androidx.core.content.ContextCompat
-import com.example.proyecto_utpl.databinding.ActivityMainBinding
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
+import com.example.proyecto_utpl.databinding.ActivityFichaRegistroBinding
 import kotlinx.android.synthetic.main.activity_ficha_registro.*
+import java.io.File
+import java.util.*
 
 class Ficha_registro : AppCompatActivity() {
-
-    private val CAMARA_REQUEST_CODE: Int = 23
-    private val PERMISO_CAMERA:Int = 99
-
-    lateinit var binding:ActivityMainBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-//        setContentView(R.layout.activity_ficha_registro)
-        setContentView(binding.root)
-        with(binding){
-            btn_foto.setOnClickListener {
-                solicitarPermisos()
-            }
-        }
-        binding.imageView.setImageResource(R.drawable.back_logo)
-    }
-
-    private fun solicitarPermisos() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            when {
-                ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-                        == PackageManager.PERMISSION_GRANTED -> {
-                    tomarFoto()
-                }
-                shouldShowRequestPermissionRationale(Manifest.permission.CAMERA) -> {
-                    mostrarMensaje("El permiso fue rechazado previamente, ve a configuraciones")
-                }
-                else -> {
-                    requestPermissions(arrayOf(Manifest.permission.CAMERA), PERMISO_CAMERA)
-                }
-            }
-        }
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        when(requestCode){
-            PERMISO_CAMERA->{
-                if(grantResults.isNotEmpty() && grantResults[0]==PackageManager.PERMISSION_GRANTED){
-                    tomarFoto()
-                }
-            }else->{
-
-            }
-        }
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-    }
-
-
-
-    private fun tomarFoto() {
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        startActivityForResult(intent, CAMARA_REQUEST_CODE)
-    }
-
-    fun mostrarMensaje(mensaje:String){
-        Toast.makeText(applicationContext,mensaje,Toast.LENGTH_LONG).show()
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        when(requestCode){
-            CAMARA_REQUEST_CODE -> {
-                if(resultCode != Activity.RESULT_OK){
-                    mostrarMensaje("No se pudo tomar la foto")
-                }
-                else{
-                    val bitmap = data?.extras?.get("data") as Bitmap
-                    with(binding){
-                        imgFoto.setImageBitmap(bitmap)
-                        }
+        private lateinit var binding:ActivityFichaRegistroBinding
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            binding = ActivityFichaRegistroBinding.inflate(layoutInflater)
+            setContentView(binding.root)
+//            setContentView(R.layout.activity_ficha_registro)
+            binding.btnFoto.setOnClickListener{
+//                openCamera.launch(Intent(MediaStore.ACTION_IMAGE_CAPTURE))
+                val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE).also{
+                    it.resolveActivity(packageManager).also { component ->
+                        createPhotoFile()
+                        val photoUri: Uri =
+                            FileProvider.getUriForFile(
+                                this,
+                                BuildConfig.APPLICATION_ID+".fileprovider",file)
+                        it.putExtra(MediaStore.EXTRA_OUTPUT, photoUri)
                     }
                 }
+                openCamera.launch(intent)
+            }
+            hora()
+
+        }
+
+
+    val openCamera = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
+            if(result.resultCode == RESULT_OK){
+//                val data = result.data!!
+//                val bitmap = data.extras!!.get("data") as Bitmap
+                val bitmap = BitmapFactory.decodeFile(file.toString())
+                binding.imgFoto.setImageBitmap(bitmap)
             }
         }
+    private lateinit var file:File
+    private fun createPhotoFile():File {
+        val dir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)!!
+        file = File.createTempFile("IMG_${System.currentTimeMillis()}_", ".jpg", dir)
+        return file;
     }
+
+
+    fun hora(){
+            val c: Calendar = Calendar.getInstance()
+            val dia:Int=c.get(Calendar.DAY_OF_WEEK)
+            val zona:Int=c.get(Calendar.NARROW_FORMAT)
+            val mes:Int=c.get(Calendar.MONTH)
+            val year:Int=c.get(Calendar.YEAR)
+            val hora:Int=c.get(Calendar.HOUR)
+            val minutos:Int=c.get(Calendar.MINUTE)
+            tv_hora.setText("$hora:$minutos ")
+            tv_fecha.setText("$year-$mes-$dia")
+    }
+}
+
