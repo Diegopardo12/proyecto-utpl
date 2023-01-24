@@ -25,9 +25,10 @@ class Home : AppCompatActivity() {
         }
 
         btn_ubi.setOnClickListener {
-            val intent = Intent(this, MapsActivity::class.java)
-            startActivity(intent)
+            val saltaMapa = Intent(this, MapsActivity::class.java)
+            startActivity(saltaMapa)
         }
+
         hora()
         val frameLayout = findViewById<FrameLayout>(R.id.frameLayout1)
         val shapeDrawable = ShapeDrawable()
