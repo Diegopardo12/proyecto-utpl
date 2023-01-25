@@ -3,11 +3,14 @@ package com.example.proyecto_utpl
 
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.icu.text.SimpleDateFormat
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.example.proyecto_utpl.databinding.ActivityFichaRegistroBinding
@@ -17,6 +20,7 @@ import java.util.*
 
 class Ficha_registro : AppCompatActivity() {
         private lateinit var binding:ActivityFichaRegistroBinding
+        @RequiresApi(Build.VERSION_CODES.N)
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             binding = ActivityFichaRegistroBinding.inflate(layoutInflater)
@@ -38,6 +42,8 @@ class Ficha_registro : AppCompatActivity() {
             }
             hora()
 
+
+
         }
 
 
@@ -57,6 +63,7 @@ class Ficha_registro : AppCompatActivity() {
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.N)
     fun hora(){
             val c: Calendar = Calendar.getInstance()
             val dia:Int=c.get(Calendar.DAY_OF_WEEK)
@@ -65,8 +72,21 @@ class Ficha_registro : AppCompatActivity() {
             val year:Int=c.get(Calendar.YEAR)
             val hora:Int=c.get(Calendar.HOUR)
             val minutos:Int=c.get(Calendar.MINUTE)
-            tv_hora.setText("$hora:$minutos ")
-            tv_fecha.setText("$year-$mes-$dia")
+        /* tv_hora.setText("$hora:$minutos ")
+            tv_fecha.setText("$year-$mes-$dia")*/
+        val current = Calendar.getInstance().time
+        val dateFormat = SimpleDateFormat("dd 'de' MMMM 'de' yyyy", Locale.getDefault())
+        val dateFormatt = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
+        val dateStringg = dateFormatt.format(current)
+        val dateFormatSymbols = dateFormat.dateFormatSymbols
+        dateFormatSymbols.months = arrayOf("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
+        dateFormat.dateFormatSymbols = dateFormatSymbols
+        val dateString = dateFormat.format(current)
+        tv_fecha.setText("$dateString")
+        tv_hora.setText("$dateStringg")
+
+
+
     }
 }
 

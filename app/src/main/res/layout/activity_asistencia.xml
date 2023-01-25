@@ -94,7 +94,7 @@
         android:id="@+id/btn_acceder"
         android:layout_width="140dp"
         android:layout_height="50dp"
-        android:backgroundTint="#2970EC"
+        android:backgroundTint="#004170"
         android:text="Iniciar Sesión"
         android:textAllCaps="false"
         app:cornerRadius="10sp"
