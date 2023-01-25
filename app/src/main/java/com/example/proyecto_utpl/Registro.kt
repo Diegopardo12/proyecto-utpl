@@ -43,8 +43,8 @@ class Registro : AppCompatActivity() {
             startActivity(salto)
 
             db.collection("usuarios").document(email).get().addOnSuccessListener {
-                tv_nombre2.setText(it.get("nombre")as String?)
-                tv_departamento2.setText(it.get("departamento") as String?)
+                tv_nombre.setText(it.get("nombre")as String?)
+                tv_departamento.setText(it.get("departamento") as String?)
             }
 
         }
