@@ -3,11 +3,9 @@ package com.example.proyecto_utpl
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract.CommonDataKinds.Email
-import androidx.appcompat.app.AlertDialog
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_registro.*
-import kotlinx.android.synthetic.main.activity_asistencia.*
+import kotlinx.android.synthetic.main.activity_home.*
 
 enum class ProviderType{
     Personal,
@@ -41,9 +39,13 @@ class Registro : AppCompatActivity() {
                     "departamento" to sp_dpto.selectedItem.toString(),
                 )
             )
-
             val salto: Intent = Intent(this,Home::class.java)
             startActivity(salto)
+
+            db.collection("usuarios").document(email).get().addOnSuccessListener {
+                tv_nombre2.setText(it.get("nombre")as String?)
+                tv_departamento2.setText(it.get("departamento") as String?)
+            }
 
         }
 

@@ -14,11 +14,14 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.example.proyecto_utpl.databinding.ActivityFichaRegistroBinding
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_ficha_registro.*
+import kotlinx.android.synthetic.main.activity_registro.*
 import java.io.File
 import java.util.*
 
 class Ficha_registro : AppCompatActivity() {
+    private val db = FirebaseFirestore.getInstance()
         private lateinit var binding:ActivityFichaRegistroBinding
         @RequiresApi(Build.VERSION_CODES.N)
         override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +44,20 @@ class Ficha_registro : AppCompatActivity() {
                 openCamera.launch(intent)
             }
             hora()
+
+//            var email = tv_email.text
+//            var fecha = tv_fecha.
+//            btn_registrarFicha.setOnClickListener {
+//                db.collection(email as String).document(tv_fecha.toString()).set(
+//                    hashMapOf(
+//                            "fecha" to tv_fecha,
+//                            "hora" to tv_hora,
+//                            "evidencia" to imgFoto,
+//                    )
+//                )
+//                val regreso = Intent(this, Home::class.java)
+//                startActivity(regreso)
+//            }
 
 
 
