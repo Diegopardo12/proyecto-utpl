@@ -3,16 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="CoarseFineLocation">
 
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-<queries>
-    <intent>
-        <action android:name="android.media.IMAGE_CAPTURE">
-        </action>
-    </intent>
-</queries>
+    <queries>
+        <intent>
+            <action android:name="android.media.IMAGE_CAPTURE"></action>
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -23,6 +22,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyectoutpl"
         tools:targetApi="31">
+        <activity
+            android:name=".turotial_fin"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -34,25 +40,23 @@
             android:label="@string/title_activity_maps" />
 
         <provider
-            android:authorities="${applicationId}.fileprovider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths">
-
-            </meta-data>
-
+                android:resource="@xml/file_paths"></meta-data>
         </provider>
-     <!--   <activity
+        <!--
+   <activity
             android:name=".Ficha_registro"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
--->
+        -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
