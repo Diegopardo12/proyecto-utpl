@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_ficha_registro.*
 import kotlinx.android.synthetic.main.activity_registro.*
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -42,10 +43,10 @@ class Registro : AppCompatActivity() {
             val salto: Intent = Intent(this,Home::class.java)
             startActivity(salto)
 
-            db.collection("usuarios").document(email).get().addOnSuccessListener {
+            /*db.collection("usuarios").document(email).get().addOnSuccessListener {
                 tv_nombre.setText(it.get("nombre")as String?)
                 tv_departamento.setText(it.get("departamento") as String?)
-            }
+            }*/
 
         }
 
