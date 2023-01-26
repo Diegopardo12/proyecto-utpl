@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">proyecto-utpl</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
     <string-array name="Departamentos">
         <item>Ciencias de la salud</item>
